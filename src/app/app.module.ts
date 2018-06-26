@@ -13,6 +13,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { BasicHightLightDirective } from './directive/basic-hightlight.directive';
 import { BetterHightlightDirective } from './directive/better-hightlight.directive';
+import { UnlessDirective } from './directive/unless.directive';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { BetterHightlightDirective } from './directive/better-hightlight.directi
     ShoppingListComponent,
     ShoppingEditComponent,
     BasicHightLightDirective,
-    BetterHightlightDirective
+    BetterHightlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

@@ -22,4 +22,8 @@ export class ShoppingListService {
     return this.ingredients.slice(); // 1.Because this return just a copy of data array.
   }
 
+  addIngredients(ings: Ingredient[]) {
+    this.ingredients.push(...ings); // 07/05 Q: what is this grammer?
+    this.ingredientChanged.emit(this.ingredients.slice());
+  }
 }

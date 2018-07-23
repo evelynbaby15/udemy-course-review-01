@@ -23,7 +23,13 @@ export class ShoppingListService {
   }
 
   addIngredients(ings: Ingredient[]) {
-    this.ingredients.push(...ings); // 07/05 Q: what is this grammer?
+    // You can also use the following for loop way for adding ingredrient, but it's too ...
+    //  for (let ingre of ings) {
+    //    this.addIngredient(ingre);
+    // }
+     // 07/05 Q: what is this grammer? A: This is an ES6 feature. (spread operator)
+     // Turn an array elements into a list elements, because push can handle a list object.
+    this.ingredients.push(...ings);
     this.ingredientChanged.emit(this.ingredients.slice());
   }
 }

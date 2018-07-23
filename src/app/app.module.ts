@@ -17,6 +17,7 @@ import { BetterHightlightDirective } from './directive/better-hightlight.directi
 import { UnlessDirective } from './directive/unless.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AppRoutingModule } from './app-routing.module';
     BasicHightLightDirective,
     BetterHightlightDirective,
     UnlessDirective,
-    DropdownDirective
+    DropdownDirective,
+    RecipeStartComponent
   ],
   imports: [
     BrowserModule,

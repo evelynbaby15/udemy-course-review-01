@@ -21,7 +21,7 @@ export class RecipeService {
       new Recipe(
         'hambger2',
         'This is big hamber2',
-        'https://static-communitytable.parade.com/wp-content/uploads/2017/09/low-carb-hamburger-casserole-recipes-f.jpg',
+        'https://images.pexels.com/photos/47725/hamburger-food-meal-tasty-47725.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
         [
           new Ingredient('vegetables', 10),
           new Ingredient('beff', 1)
@@ -30,10 +30,14 @@ export class RecipeService {
     ]
   ;
 
-  recipeSelected = new EventEmitter<Recipe>();
+  //recipeSelected = new EventEmitter<Recipe>();
 
   getRecipes() {
     return this.recipes.slice(); // returns a new array (receive a copy of this array)
+  }
+
+  getRecipe(index: number) {
+    return this.recipes[index];
   }
 
   addIngreToShoppingList(ingres: Ingredient[]) {

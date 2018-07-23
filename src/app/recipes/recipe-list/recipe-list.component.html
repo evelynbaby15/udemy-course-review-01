@@ -9,8 +9,8 @@
     
   <app-recipe-item 
     *ngFor="let r of recipes; let i = index"
-    [recipe]=r
-    [routerLink]="['/recipes', i]"
+    [recipe]="r"
+    [index]="i"
   ></app-recipe-item>
   </div>
 </div>

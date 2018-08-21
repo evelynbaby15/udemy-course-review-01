@@ -1,10 +1,11 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ShoppingListService {
-  
-  ingredientChanged = new EventEmitter<Ingredient[]>();
+
+  ingredientChanged = new Subject<Ingredient[]>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
@@ -15,7 +16,7 @@ export class ShoppingListService {
 
   addIngredient(data: Ingredient) {
     this.ingredients.push(data);
-    this.ingredientChanged.emit(this.ingredients.slice()); // 2.So here should inform subscribers when total data has been chaned.
+    this.ingredientChanged.next(this.ingredients.slice()); // 2.So here should inform subscribers when total data has been chaned.
   }
 
   getIngredients() {
@@ -27,9 +28,9 @@ export class ShoppingListService {
     //  for (let ingre of ings) {
     //    this.addIngredient(ingre);
     // }
-     // 07/05 Q: what is this grammer? A: This is an ES6 feature. (spread operator)
-     // Turn an array elements into a list elements, because push can handle a list object.
+    // 07/05 Q: what is this grammer? A: This is an ES6 feature. (spread operator)
+    // Turn an array elements into a list elements, because push can handle a list object.
     this.ingredients.push(...ings);
-    this.ingredientChanged.emit(this.ingredients.slice());
+    this.ingredientChanged.next(this.ingredients.slice());
   }
 }

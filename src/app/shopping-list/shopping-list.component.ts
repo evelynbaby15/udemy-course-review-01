@@ -33,4 +33,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy{
   //   this.shoppingListService.addIngredient(data);
   // }
 
+  onEdit(index: number) {
+    // To feed a new value to the Subject, just call next(theValue),
+    // and it will be multicasted to the Observers registered to listen to the Subject.
+    this.shoppingListService.startEditing.next(index);
+  }
+
 }

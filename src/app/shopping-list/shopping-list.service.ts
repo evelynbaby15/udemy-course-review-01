@@ -6,6 +6,7 @@ import { Subject } from 'rxjs/Subject';
 export class ShoppingListService {
 
   ingredientChanged = new Subject<Ingredient[]>();
+  startEditing = new Subject<number>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
@@ -23,6 +24,10 @@ export class ShoppingListService {
     return this.ingredients.slice(); // 1.Because this return just a copy of data array.
   }
 
+  getIngredient(index: number) {
+    return this.ingredients[index];
+  }
+
   addIngredients(ings: Ingredient[]) {
     // You can also use the following for loop way for adding ingredrient, but it's too ...
     //  for (let ingre of ings) {
@@ -31,6 +36,17 @@ export class ShoppingListService {
     // 07/05 Q: what is this grammer? A: This is an ES6 feature. (spread operator)
     // Turn an array elements into a list elements, because push can handle a list object.
     this.ingredients.push(...ings);
+    this.ingredientChanged.next(this.ingredients.slice());
+
+  }
+
+  updateIngredient(index: number, newIngredient: Ingredient) {
+    this.ingredients[index] = newIngredient;
+    this.ingredientChanged.next(this.ingredients.slice());
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
     this.ingredientChanged.next(this.ingredients.slice());
   }
 }

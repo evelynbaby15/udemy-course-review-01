@@ -44,4 +44,12 @@ export class RecipeService {
     this.sls.addIngredients(ingres);
   }
 
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+  }
+
 }

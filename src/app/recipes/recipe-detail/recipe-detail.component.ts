@@ -36,4 +36,10 @@ export class RecipeDetailComponent implements OnInit {
     // this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route });
   }
 
+
+  onDeleteRecipe() {
+    this.recipS.deleteRecipe(this.id); // Q: why this is put id but service is put index?
+    this.router.navigate(['/recipes']);
+  }
+
 }

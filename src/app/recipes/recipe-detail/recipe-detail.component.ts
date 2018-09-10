@@ -38,6 +38,7 @@ export class RecipeDetailComponent implements OnInit {
 
 
   onDeleteRecipe() {
+    console.log('on delete recipe id: ', this.id);
     this.recipS.deleteRecipe(this.id); // Q: why this is put id but service is put index?
     this.router.navigate(['/recipes']);
   }

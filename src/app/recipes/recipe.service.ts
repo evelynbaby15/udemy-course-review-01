@@ -21,7 +21,7 @@ export class RecipeService {
         new Ingredient('meat', 1)
       ]
     ),
-      new Recipe(
+      new Recipe(  
         'hambger2',
         'This is big hamber2',
         'https://images.pexels.com/photos/47725/hamburger-food-meal-tasty-47725.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -58,7 +58,7 @@ export class RecipeService {
   }
 
   deleteRecipe(index: number) {
-    this.recipes.slice(index, 1);
+    this.recipes.splice(index, 1);
     this.recipeEventChanged.next(this.recipes.slice());
   }
 

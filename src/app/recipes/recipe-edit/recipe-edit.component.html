@@ -13,11 +13,11 @@
     <div class="row">
       <div class="form-group">
         <label for="imgPath">ImagePath</label>
-        <input type="text" id="imgPath" class="form-control" formControlName="imgPath">
+        <input type="text" id="imgPath" class="form-control" formControlName="imgPath" #imagePath>
       </div>
     </div>
     <div class="row">
-      <img src="" class="img-responsive">
+      <img [src]="imagePath.value" class="img-responsive">
     </div>
     <div class="row">
       <div class="form-group">
@@ -30,11 +30,11 @@
             <div class="row" *ngFor="let ingredientCtl of getControls(); let i = index" [formGroupName]="i">
                 <div class="col-xs-8"><input type="text" class="form-control" formControlName="name"></div>
                 <div class="col-xs-2"><input type="number" class="form-control" formControlName="amount"></div>
-                <div class="col-xs-2"><button class="btn btn-danger">X</button></div>
+                <div class="col-xs-2"><button class="btn btn-danger" type="button" (click)=onDeleteIngredient(i)>X</button></div>
             </div>
           </div>
     </div>
     <hr>
-    <button class="btn btn-success" (click)="onAddIngredient()">Add Ingredient</button>
+    <button type="button" class="btn btn-success" (click)="onAddIngredient()">Add Ingredient</button>
   </form>
 </div>

@@ -25,7 +25,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.recipes = this.recipeService.getRecipes();
 
-    // TODO : I'm not sure this?
+    // 每當有更新的時候需要再重新 assign 一次食譜的資料
     this.subscription = this.recipeService.recipeEventChanged.subscribe(
       (recipes: Recipe[]) => {
         this.recipes = recipes;

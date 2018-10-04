@@ -13,6 +13,7 @@
     </div>
 
     <ul class="nav navbar-nav navbar-right">
+        <li><a [routerLink]="['/signup']" routerLinkActive="router-link-active" >Register</a></li>
         <li class="dropdown" appDropdown>
             <a href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -23,8 +24,8 @@
 
     </ul>
 
-    <p appBasicHeightLight>test custom directive</p>
-    <p appBetterHightlight [defaultColor]="'yellow'" cutomBackGroundColor='gray'>test a better directive</p>
+    <!-- <p appBasicHeightLight>test custom directive</p> -->
+    <!-- <p appBetterHightlight [defaultColor]="'yellow'" cutomBackGroundColor='gray'>test a better directive</p> -->
     
 
 </nav>

@@ -22,7 +22,7 @@ export class DataStorageService {
         const recipes: Recipe[] = res.json();
         for(const recipe of recipes) {
           if (!recipe['ingredients']) {
-            console.log();
+            
             recipe['ingredients'] = [];
           }
         }
@@ -30,6 +30,7 @@ export class DataStorageService {
       })
     )
     .subscribe((recipes: Recipe[]) => {
+      console.log(recipes);
       this.rs.setRecipes(recipes);
    });
    }

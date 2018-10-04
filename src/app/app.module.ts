@@ -24,6 +24,8 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecipeService } from './recipes/recipe.service';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { RecipeService } from './recipes/recipe.service';
     UnlessDirective,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

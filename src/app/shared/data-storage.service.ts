@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import 'rxjs/Rx';
 
 import { RecipeService } from './../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
@@ -21,18 +22,19 @@ export class DataStorageService {
   fetchRecipes() {
     const tk = this.authService.getToken();
 
-    return this.http.get('https://banban-note.firebaseio.com/banban-note.json?auth=' + tk)
-    .subscribe((recipes: Recipe[]) => {
-      console.log(recipes);
-      this.rs.setRecipes(recipes);
-      
-      for (const recipe of recipes) {
-        if (!recipe['ingredients']) {
-          recipe['ingredients'] = [];
+    return this.http.get<Recipe[]>('https://banban-note.firebaseio.com/banban-note.json?auth=' + tk)
+    .map(
+      (recipes) => {
+        for (const recipe of recipes) {
+          if (!recipe['ingredients']) {
+            recipe['ingredients'] = [];
+          }
         }
+        return recipes;
       }
-      return recipes;
-
+    )
+    .subscribe((recipes: Recipe[]) => {
+      this.rs.setRecipes(recipes);
    });
    }
 }

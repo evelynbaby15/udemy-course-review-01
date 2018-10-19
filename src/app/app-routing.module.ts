@@ -12,13 +12,6 @@ import { SignupComponent } from './auth/signup/signup.component';
 
 const routes: Routes = [
     { path : '', redirectTo: '/recipes', pathMatch: 'full' },
-    { path : 'recipes', component: RecipesComponent, children: [
-        {path: '', component: RecipeStartComponent},
-        {path: 'new', component: RecipeEditComponent},
-        {path: ':id', component: RecipeDetailComponent},
-        {path: ':id/edit', component: RecipeEditComponent}
-        ]
-    },
     { path : 'signup', component: SignupComponent},
     { path : 'signin', component: SigninComponent},
     { path : 'shopping-list', component: ShoppingListComponent}

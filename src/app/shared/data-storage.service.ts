@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import 'rxjs/Rx';
 
 import { RecipeService } from './../recipes/recipe.service';
@@ -22,7 +22,8 @@ export class DataStorageService {
   fetchRecipes() {
     const tk = this.authService.getToken();
 
-    return this.http.get<Recipe[]>('https://banban-note.firebaseio.com/banban-note.json?auth=' + tk)
+    return this.http.get<Recipe[]>('https://banban-note.firebaseio.com/banban-note.json'
+    , {params: new HttpParams().set('auth', tk)})
     .map(
       (recipes) => {
         for (const recipe of recipes) {
